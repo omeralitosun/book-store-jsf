@@ -11,4 +11,6 @@ public interface BookService {
 	String add(Book book);
 	List<Book> getAll();
 	Book getById(int id);
+	String update(int id,Book book);
+	String delete(int id);
 }

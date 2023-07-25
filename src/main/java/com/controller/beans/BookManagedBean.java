@@ -10,6 +10,8 @@ import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Named
 @RequestScoped
@@ -19,13 +21,11 @@ public class BookManagedBean implements Serializable{
 	@EJB
 	private BookService service;
 	private Book book;
-	private String result = "None";
 	
 	@PostConstruct
     public void postConstruct() {
         String bookIdParam = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
         book = new Book();
-        this.result="Noneee";
         if (bookIdParam != null) {
         	int bookId;
             bookId = Integer.parseInt(bookIdParam);
@@ -34,32 +34,23 @@ public class BookManagedBean implements Serializable{
     }
 	
 	public String add() {
-		this.result = service.add(book);
-		return "newbook";
+		book.setId(0);
+		service.add(book);
+		return "index";
+	}
+	public String update() {
+		service.update(book.getId(),book);
+		return "index";
 	}
 	
-	public String get() {
-		//this.book = service.getById(1);
-		this.book = service.getAll().get(1);
-		return "newbook";
+	public String delete() {
+		service.delete(book.getId());
+		return "index";
 	}
-	
-	public String getResult() {
-		return result;
-	}
-
-
-
-	public void setResult(String result) {
-		this.result = result;
-	}
-
-
 
 	public Book getBook() {
 		return book;
 	}
-
 
 	public void setBook(Book book) {
 		this.book = book;

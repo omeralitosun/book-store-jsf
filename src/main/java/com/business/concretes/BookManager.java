@@ -31,6 +31,17 @@ public class BookManager implements BookService{
 	public Book getById(int id) {
 		return repository.findById(id);
 	}
+
+	@Override
+	public String update(int id, Book book) {
+		book.setId(id);
+		return repository.saveOrUpdate(book);
+	}
+
+	@Override
+	public String delete(int id) {
+		return repository.delete(id);
+	}
 	
 	
 }

@@ -13,7 +13,13 @@
         </f:facet>
         #{book.name}
 		<h:outputText value=" ("/>
-        <p:link value="New Book" outcome="newbook">
+        <p:link value="New Book" outcome="new-book">
+            <f:param name="id" value="#{book.id}"/>
+        </p:link>
+        <p:link value="Edit Book" outcome="edit-book">
+            <f:param name="id" value="#{book.id}"/>
+        </p:link>
+        <p:link value="Detail Book" outcome="detail-book">
             <f:param name="id" value="#{book.id}"/>
         </p:link>
         <h:outputText value=")"/>

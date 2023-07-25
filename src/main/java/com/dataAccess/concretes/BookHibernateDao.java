@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.dataAccess.HibernateUtil;
+import com.configuration.HibernateUtil;
 import com.dataAccess.abstracts.BookRepository;
 import com.entities.concretes.Book;
 import com.entities.enums.Genre;
@@ -62,6 +62,29 @@ public class BookHibernateDao implements BookRepository{
 			e.printStackTrace();
 		} 
 		return book;
+	}
+
+	@Override
+	public String delete(int id) {
+		Transaction transaction = null;
+		Session session = null;
+		String result = "Başarılı";
+		try  {
+			session = HibernateUtil.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			Book book = session.get(Book.class, id);
+			if(book != null) {
+				session.remove(book);
+			}
+			transaction.commit();
+		} catch (Exception e) {
+			result="Başarısız";
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		} 
+		return result;
 	}
 
 }

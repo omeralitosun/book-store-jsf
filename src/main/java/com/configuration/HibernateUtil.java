@@ -1,4 +1,4 @@
-package com.dataAccess;
+package com.configuration;
 
 import java.util.Properties;
 
