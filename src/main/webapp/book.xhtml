@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+</h:head>
+<body>
+
+	<p:dataList value="#{bookList.booksAvailable}" var="book" type="ordered">
+        <f:facet name="header">
+            Book List
+        </f:facet>
+        #{book.name}
+		<h:outputText value=" ("/>
+        <p:link value="New Book" outcome="newbook">
+            <f:param name="id" value="#{book.id}"/>
+        </p:link>
+        <h:outputText value=")"/>
+    </p:dataList>
+
+</body>
+</html>

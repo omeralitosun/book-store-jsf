@@ -1,0 +1,36 @@
+.new-book-form{
+    margin:0 auto;
+    
+}
+.container-center{
+    margin: 300px auto;
+    width: 600px;
+    border: 1px solid rgba(0, 0, 0, 0.384);
+
+}
+.new-book-form h2{
+    padding: 0 !important;;
+    margin: 0 !important;;
+    margin-bottom: 25px !important;;
+}
+.new-book-form .ui-corner-all.input{
+    margin: 10px 10px 30px !important;
+    width:500px;
+}
+.new-book-form label{
+    margin-left: 5px;
+}
+.new-book-form .button{
+    margin: 10px 20px !important;; 
+    width: 550px !important;;
+}
+
+.content-name{
+	margin: 10px 10px 30px;
+    width:700px;
+    background-color: red;
+}
+.content-name input{
+	margin: 10px 10px 30px;
+    width:500px;
+}

@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+</h:head>
+<body>
+
+	<h3>Add New Product</h3>
+	<h:form prependId="false">
+		<table cellpadding="2" cellspacing="2">
+			<tr>
+				<td>Name</td>
+				<td>
+					<h:inputText value="#{bookManagedBean.book.name}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td>author</td>
+				<td>
+					<h:inputText value="#{bookManagedBean.book.author}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td>isbn</td>
+				<td>
+					<h:inputText value="#{bookManagedBean.book.isbn}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="Save" action="#{bookManagedBean.add()}"></h:commandButton>
+				</td>
+			</tr>
+		</table>
+		
+		 result : #{bookManagedBean.result}
+	</h:form>
+	<h:form prependId="false">
+		<table cellpadding="2" cellspacing="2">
+			<tr>
+				<td>Name</td>
+				<td>
+					#{bookManagedBean.book.name}
+				</td>
+			</tr>
+			<tr>
+				<td>author</td>
+				<td>
+					#{bookManagedBean.book.author}
+				</td>
+			</tr>
+			<tr>
+				<td>isbn</td>
+				<td>
+					#{bookManagedBean.book.isbn}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="Save" action="#{bookManagedBean.get()}"></h:commandButton>
+				</td>
+			</tr>
+		</table>
+		
+		 result : #{bookManagedBean.result}
+	</h:form>
+	<h:form>
+        <p:panel header="Update Book">
+            <p:panelGrid columns="1" layout="grid">
+                <p:outputLabel for="book-title" value="Enter new book title"/>
+                <p:inputText id="book-title" value='#{bookManagedBean.book.name}'/>
+            </p:panelGrid>
+            <input type="hidden" name="id" value='#{param.id}'/>
+        </p:panel>
+    </h:form>
+</body>
+</html>

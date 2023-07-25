@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+</h:head>
+<body>
+
+	<h3>Add New Product</h3>
+	<h:form prependId="false">
+		<table cellpadding="2" cellspacing="2">
+			<tr>
+				<td>Name</td>
+				<td>
+					<h:inputText value="#{productManagedBean.product.name}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td>
+					<h:inputText value="#{productManagedBean.product.price}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td>
+					<h:inputText value="#{productManagedBean.product.quantity}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td>Description</td>
+				<td>
+					<h:inputTextarea cols="20" rows="5" value="#{productManagedBean.product.description}"></h:inputTextarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td>
+					<h:selectBooleanCheckbox value="#{productManagedBean.product.status}"></h:selectBooleanCheckbox>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="Save" action="#{productManagedBean.save()}"></h:commandButton>
+				</td>
+			</tr>
+		</table>
+		
+		 result : #{productManagedBean.result}
+	</h:form>
+
+</body>
+</html>
