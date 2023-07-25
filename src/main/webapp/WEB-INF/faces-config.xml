@@ -1,0 +1,29 @@
+<faces-config xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
+	https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_6_0.xsd"
+	version="6.0">
+
+
+	<navigation-rule>
+		<from-view-id>/detail-book.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/book-list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/edit-book.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/book-list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/new-book.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/book-list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

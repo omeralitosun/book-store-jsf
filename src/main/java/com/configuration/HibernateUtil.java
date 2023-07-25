@@ -8,7 +8,6 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
-import com.entities.Product;
 import com.entities.concretes.Book;
 
 public class HibernateUtil {
@@ -31,7 +30,6 @@ public class HibernateUtil {
                 settings.put(Environment.HBM2DDL_AUTO, "update");
 
                 configuration.setProperties(settings);
-                configuration.addAnnotatedClass(Product.class);
                 configuration.addAnnotatedClass(Book.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
