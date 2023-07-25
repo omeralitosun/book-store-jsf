@@ -1,29 +1,63 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	
+	<title>Book List</title>
 </h:head>
 <body>
 
-	<p:dataList value="#{bookList.booksAvailable}" var="book" type="ordered">
-        <f:facet name="header">
-            Book List
-        </f:facet>
-        #{book.name}
-		<h:outputText value=" ("/>
-        <p:link value="New Book" outcome="new-book">
-            <f:param name="id" value="#{book.id}"/>
-        </p:link>
-        <p:link value="Edit Book" outcome="edit-book">
-            <f:param name="id" value="#{book.id}"/>
-        </p:link>
-        <p:link value="Detail Book" outcome="detail-book">
-            <f:param name="id" value="#{book.id}"/>
-        </p:link>
-        <h:outputText value=")"/>
-    </p:dataList>
 
+	<div class="card">
+		<h:form>
+			<p:dataTable var="book" value="#{bookList.booksAvailable}" rows="10"
+				paginator="true" paginatorPosition="both"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+				rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+				<p:column headerText="Name">
+					<h:outputText value="#{book.name}" />
+				</p:column>
+
+				<p:column headerText="ISBN">
+					<h:outputText value="#{book.isbn}" />
+				</p:column>
+
+				<p:column headerText="Genre">
+					<h:outputText value="#{book.genre}" />
+				</p:column>
+
+				<p:column headerText="Author">
+					<h:outputText value="#{book.author}" />
+				</p:column>
+
+				<p:column headerText="Price">
+					<h:outputText value="#{book.price}" />
+				</p:column>
+				<p:column headerText="**">
+					<p:linkButton outcome="detail-book" value="Detail"
+						style="margin-right:20px;">
+						<f:param name="id" value="#{book.id}"/>
+					</p:linkButton>
+					<p:linkButton outcome="edit-book" value="Edit"
+						style="margin-right:20px;">
+						<f:param name="id" value="#{book.id}"/>
+					</p:linkButton>
+				</p:column>
+
+				<f:facet name="paginatorTopLeft">
+					<p:linkButton outcome="new-book" value="Add Book"
+						style="margin-right:20px;">
+					</p:linkButton>
+				</f:facet>
+
+				<f:facet name="paginatorBottomRight">
+					<p:commandButton type="button" icon="pi pi-cloud-upload" />
+				</f:facet>
+
+			</p:dataTable>
+		</h:form>
+	</div>
 </body>
 </html>

@@ -9,10 +9,11 @@ import com.entities.concretes.Book;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class BookList implements Serializable{
 
     /**

@@ -8,21 +8,21 @@
 	<navigation-rule>
 		<from-view-id>/detail-book.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>success</from-outcome>
+			<from-outcome>index</from-outcome>
 			<to-view-id>/book-list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<from-view-id>/edit-book.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>success</from-outcome>
+			<from-outcome>index</from-outcome>
 			<to-view-id>/book-list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<from-view-id>/new-book.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>success</from-outcome>
+			<from-outcome>index</from-outcome>
 			<to-view-id>/book-list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>

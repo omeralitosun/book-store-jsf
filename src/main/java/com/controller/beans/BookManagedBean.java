@@ -7,14 +7,12 @@ import com.entities.concretes.Book;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.context.FacesContext;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class BookManagedBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -23,7 +21,7 @@ public class BookManagedBean implements Serializable{
 	private Book book;
 	
 	@PostConstruct
-    public void postConstruct() {
+    public void init() {
         String bookIdParam = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
         book = new Book();
         if (bookIdParam != null) {

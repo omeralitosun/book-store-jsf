@@ -3,7 +3,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-
+	<title>Book Detail</title>
 </h:head>
 <body>
 
@@ -34,11 +34,11 @@
 					<td>#{bookManagedBean.book.price}</td>
 				</tr>
 				<tr>
-					<td><h:commandButton value="Delete"
-							action="#{bookManagedBean.delete()}"></h:commandButton></td>
+					<td><h:button value="Delete"
+							outcome="#{bookManagedBean.delete()}"></h:button></td>
 				</tr>
 			</table>
-			<input type="hidden" name="id" value='#{param.id}'/>
+			
 		</p:panel>
 	</h:form>
 </body>
