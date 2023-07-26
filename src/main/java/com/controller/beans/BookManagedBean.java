@@ -7,6 +7,8 @@ import com.entities.concretes.Book;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
@@ -25,25 +27,26 @@ public class BookManagedBean implements Serializable{
         String bookIdParam = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
         book = new Book();
         if (bookIdParam != null) {
+        	
         	int bookId;
             bookId = Integer.parseInt(bookIdParam);
             book = service.getById(bookId);
         }
     }
 	
-	public String add() {
+	public void add() {
 		book.setId(0);
-		service.add(book);
-		return "index";
+		service.add(book);		
+		goToIndexPage();
 	}
-	public String update() {
+	public void update() {
 		service.update(book.getId(),book);
-		return "index";
+		goToIndexPage();
 	}
 	
-	public String delete() {
+	public void delete() {
 		service.delete(book.getId());
-		return "index";
+		goToIndexPage();
 	}
 
 	public Book getBook() {
@@ -52,5 +55,16 @@ public class BookManagedBean implements Serializable{
 
 	public void setBook(Book book) {
 		this.book = book;
+	}
+	
+	public void goToIndexPage() {
+		try {
+			ExternalContext ec = FacesContext.getCurrentInstance()
+			        .getExternalContext();
+		    ec.redirect(ec.getRequestContextPath()+"?success=true");    
+		} catch (Exception e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		}
 	}
 }

@@ -6,7 +6,9 @@
 	<title>Book List</title>
 </h:head>
 <body>
-
+	<p:growl>
+		<p:autoUpdate />
+	</p:growl>
 
 	<div class="card">
 		<h:form>
@@ -38,11 +40,11 @@
 				<p:column headerText="**">
 					<p:linkButton outcome="detail-book" value="Detail"
 						style="margin-right:20px;">
-						<f:param name="id" value="#{book.id}"/>
+						<f:param name="id" value="#{book.id}" />
 					</p:linkButton>
 					<p:linkButton outcome="edit-book" value="Edit"
 						style="margin-right:20px;">
-						<f:param name="id" value="#{book.id}"/>
+						<f:param name="id" value="#{book.id}" />
 					</p:linkButton>
 				</p:column>
 
@@ -60,4 +62,7 @@
 		</h:form>
 	</div>
 </body>
+<f:metadata>
+    <f:viewAction action="#{bookList.onPageLoad}" />
+</f:metadata>
 </html>

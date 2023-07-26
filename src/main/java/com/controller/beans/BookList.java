@@ -9,6 +9,8 @@ import com.entities.concretes.Book;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
@@ -23,13 +25,16 @@ public class BookList implements Serializable{
 	@EJB
     private BookService service;
     private List<Book> booksAvailable;
+    private String success;
     
     @PostConstruct
     public void postConstruct() {
         booksAvailable = service.getAll();
+        success = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("success");
     }
     
     public List<Book> getBooksAvailable() {
+  
         return booksAvailable;
     }
 
@@ -37,5 +42,10 @@ public class BookList implements Serializable{
 		this.booksAvailable = booksAvailable;
 	}    
     
+	public void onPageLoad() {
+		if(success!=null && success.equals("true")) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Kayıt Başarılı"));
+		}
+	}
     
 }
