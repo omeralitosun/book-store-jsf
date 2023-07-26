@@ -44,7 +44,6 @@ public class BookHibernateDao implements BookRepository{
 			session = HibernateUtil.getSessionFactory().openSession();
 			books = session.createQuery("from Book", Book.class).getResultList();
 		} catch (Exception e) {
-			books.add(new Book(1, "exception", "saddsasad", "asddasdsa", Genre.Korku, 1));
 			e.printStackTrace();
 		} 
 		

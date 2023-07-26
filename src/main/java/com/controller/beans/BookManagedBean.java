@@ -26,8 +26,7 @@ public class BookManagedBean implements Serializable{
     public void init() {
         String bookIdParam = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
         book = new Book();
-        if (bookIdParam != null) {
-        	
+        if (bookIdParam != null) {       	
         	int bookId;
             bookId = Integer.parseInt(bookIdParam);
             book = service.getById(bookId);

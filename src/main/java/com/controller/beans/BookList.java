@@ -44,7 +44,7 @@ public class BookList implements Serializable{
     
 	public void onPageLoad() {
 		if(success!=null && success.equals("true")) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Kayıt Başarılı"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("İşlem Başarılı"));
 		}
 	}
     

@@ -4,46 +4,68 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Edit Book</title>
+	<style>
+  	.card{
+  	margin: 100px auto;
+    width: 600px;
+    border: 1px solid rgba(0, 0, 0, 0.384);
+  	}
+  	.card .content{
+  	margin: 1px auto;
+  	item-align:center;
+  	}
+  	.content input{
+	margin: 10px auto;
+    width:550px;
+	}
+	.content div{
+	margin: 10px auto;
+    width:550px;
+	}
+	.content button{
+	margin: 10px auto;
+    width:550px;
+	}
+	.content h5{
+	margin-left: 5px;
+	}
+</style>
 </h:head>
 <body>
-
-	<h3>Add New Product</h3>
-	<h:form>
-		<p:panel header="Update Book">
-			<table cellpadding="2" cellspacing="2">
-				<tr>
-					<td>Name</td>
-					<td><h:inputText value="#{bookManagedBean.book.name}"></h:inputText>
-					</td>
-				</tr>
-				<tr>
-					<td>ISBN</td>
-					<td><h:inputText value="#{bookManagedBean.book.isbn}"></h:inputText>
-					</td>
-				</tr>
-				<tr>
-					<td>Author</td>
-					<td><h:inputText value="#{bookManagedBean.book.author}"></h:inputText>
-					</td>
-				</tr>
-				<tr>
-					<td>Genre</td>
-					<td><h:selectOneMenu value="#{bookManagedBean.book.genre}">
-							<f:selectItems value="#{data.statuses}" />
-						</h:selectOneMenu></td>
-				</tr>
-				<tr>
-					<td>Price</td>
-					<td><h:inputText value="#{bookManagedBean.book.price}"></h:inputText>
-					</td>
-				</tr>
-				<tr>
-					<td><h:commandButton value="Save"
-							action="#{bookManagedBean.update()}"></h:commandButton></td>
-				</tr>
-			</table>
-		</p:panel>
-		
-	</h:form>
+	<p:growl>
+            <p:autoUpdate/>
+        </p:growl>
+	
+	<div class="card">
+		<h:form prependId="false">
+		<h3>Edit Book</h3>
+		<div class="content">
+			<h5>Name</h5>
+			<p:inputText value="#{bookManagedBean.book.name}"></p:inputText>
+		</div>
+		<div class="content">
+			<h5>ISBN</h5>
+			<p:inputText value="#{bookManagedBean.book.isbn}"></p:inputText>
+		</div>
+		<div class="content">
+			<h5>Author</h5>
+			<p:inputText value="#{bookManagedBean.book.author}"></p:inputText>
+		</div>
+		<div class="content">
+			<h5>Genre</h5>
+			<p:selectOneMenu value="#{bookManagedBean.book.genre}">
+						<f:selectItems value="#{data.statuses}" />
+					</p:selectOneMenu>
+		</div>
+		<div class="content">
+			<h5>Price</h5>
+			<p:inputNumber value="#{bookManagedBean.book.price}" modifyValueOnWheel="false" ></p:inputNumber>
+		</div>
+		<div class="content">
+			<p:commandButton value="Update"
+							action="#{bookManagedBean.update()}"></p:commandButton>
+		</div>
+		</h:form>
+	</div>
 </body>
 </html>
